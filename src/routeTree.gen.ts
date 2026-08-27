@@ -18,6 +18,9 @@ import { Route as PharmaciesRouteImport } from './routes/pharmacies'
 import { Route as RealestateRouteImport } from './routes/realestate'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SubscribeRouteImport } from './routes/subscribe'
+import { Route as ProviderIdRouteImport } from './routes/provider.$id'
+import { Route as RateIdRouteImport } from './routes/rate.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +67,21 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SubscribeRoute = SubscribeRouteImport.update({
+  id: '/subscribe',
+  path: '/subscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProviderIdRoute = ProviderIdRouteImport.update({
+  id: '/provider/$id',
+  path: '/provider/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RateIdRoute = RateIdRouteImport.update({
+  id: '/rate/$id',
+  path: '/rate/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +93,9 @@ export interface FileRoutesByFullPath {
   '/realestate': typeof RealestateRoute
   '/search': typeof SearchRoute
   '/services': typeof ServicesRoute
+  '/subscribe': typeof SubscribeRoute
+  '/provider/$id': typeof ProviderIdRoute
+  '/rate/$id': typeof RateIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,6 +107,9 @@ export interface FileRoutesByTo {
   '/realestate': typeof RealestateRoute
   '/search': typeof SearchRoute
   '/services': typeof ServicesRoute
+  '/subscribe': typeof SubscribeRoute
+  '/provider/$id': typeof ProviderIdRoute
+  '/rate/$id': typeof RateIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -98,6 +122,9 @@ export interface FileRoutesById {
   '/realestate': typeof RealestateRoute
   '/search': typeof SearchRoute
   '/services': typeof ServicesRoute
+  '/subscribe': typeof SubscribeRoute
+  '/provider/$id': typeof ProviderIdRoute
+  '/rate/$id': typeof RateIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +138,9 @@ export interface FileRouteTypes {
     | '/realestate'
     | '/search'
     | '/services'
+    | '/subscribe'
+    | '/provider/$id'
+    | '/rate/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,6 +152,9 @@ export interface FileRouteTypes {
     | '/realestate'
     | '/search'
     | '/services'
+    | '/subscribe'
+    | '/provider/$id'
+    | '/rate/$id'
   id:
     | '__root__'
     | '/'
@@ -133,6 +166,9 @@ export interface FileRouteTypes {
     | '/realestate'
     | '/search'
     | '/services'
+    | '/subscribe'
+    | '/provider/$id'
+    | '/rate/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -145,6 +181,9 @@ export interface RootRouteChildren {
   RealestateRoute: typeof RealestateRoute
   SearchRoute: typeof SearchRoute
   ServicesRoute: typeof ServicesRoute
+  SubscribeRoute: typeof SubscribeRoute
+  ProviderIdRoute: typeof ProviderIdRoute
+  RateIdRoute: typeof RateIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -212,6 +251,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/subscribe': {
+      id: '/subscribe'
+      path: '/subscribe'
+      fullPath: '/subscribe'
+      preLoaderRoute: typeof SubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/provider/$id': {
+      id: '/provider/$id'
+      path: '/provider/$id'
+      fullPath: '/provider/$id'
+      preLoaderRoute: typeof ProviderIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rate/$id': {
+      id: '/rate/$id'
+      path: '/rate/$id'
+      fullPath: '/rate/$id'
+      preLoaderRoute: typeof RateIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -225,6 +285,9 @@ const rootRouteChildren: RootRouteChildren = {
   RealestateRoute: RealestateRoute,
   SearchRoute: SearchRoute,
   ServicesRoute: ServicesRoute,
+  SubscribeRoute: SubscribeRoute,
+  ProviderIdRoute: ProviderIdRoute,
+  RateIdRoute: RateIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
