@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DeliveryRouteImport } from './routes/delivery'
+import { Route as DoctorsRouteImport } from './routes/doctors'
+import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as HospitalsRouteImport } from './routes/hospitals'
+import { Route as PharmaciesRouteImport } from './routes/pharmacies'
+import { Route as RealestateRouteImport } from './routes/realestate'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SubscribeRouteImport } from './routes/subscribe'
+import { Route as ProviderIdRouteImport } from './routes/provider.$id'
+import { Route as RateIdRouteImport } from './routes/rate.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DeliveryRoute = DeliveryRouteImport.update({
+  id: '/delivery',
+  path: '/delivery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DoctorsRoute = DoctorsRouteImport.update({
+  id: '/doctors',
+  path: '/doctors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FavoritesRoute = FavoritesRouteImport.update({
+  id: '/favorites',
+  path: '/favorites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HospitalsRoute = HospitalsRouteImport.update({
+  id: '/hospitals',
+  path: '/hospitals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PharmaciesRoute = PharmaciesRouteImport.update({
+  id: '/pharmacies',
+  path: '/pharmacies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RealestateRoute = RealestateRouteImport.update({
+  id: '/realestate',
+  path: '/realestate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscribeRoute = SubscribeRouteImport.update({
+  id: '/subscribe',
+  path: '/subscribe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProviderIdRoute = ProviderIdRouteImport.update({
+  id: '/provider/$id',
+  path: '/provider/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RateIdRoute = RateIdRouteImport.update({
+  id: '/rate/$id',
+  path: '/rate/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/delivery': typeof DeliveryRoute
+  '/doctors': typeof DoctorsRoute
+  '/favorites': typeof FavoritesRoute
+  '/hospitals': typeof HospitalsRoute
+  '/pharmacies': typeof PharmaciesRoute
+  '/realestate': typeof RealestateRoute
+  '/search': typeof SearchRoute
+  '/services': typeof ServicesRoute
+  '/subscribe': typeof SubscribeRoute
+  '/provider/$id': typeof ProviderIdRoute
+  '/rate/$id': typeof RateIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/delivery': typeof DeliveryRoute
+  '/doctors': typeof DoctorsRoute
+  '/favorites': typeof FavoritesRoute
+  '/hospitals': typeof HospitalsRoute
+  '/pharmacies': typeof PharmaciesRoute
+  '/realestate': typeof RealestateRoute
+  '/search': typeof SearchRoute
+  '/services': typeof ServicesRoute
+  '/subscribe': typeof SubscribeRoute
+  '/provider/$id': typeof ProviderIdRoute
+  '/rate/$id': typeof RateIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/delivery': typeof DeliveryRoute
+  '/doctors': typeof DoctorsRoute
+  '/favorites': typeof FavoritesRoute
+  '/hospitals': typeof HospitalsRoute
+  '/pharmacies': typeof PharmaciesRoute
+  '/realestate': typeof RealestateRoute
+  '/search': typeof SearchRoute
+  '/services': typeof ServicesRoute
+  '/subscribe': typeof SubscribeRoute
+  '/provider/$id': typeof ProviderIdRoute
+  '/rate/$id': typeof RateIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/delivery'
+    | '/doctors'
+    | '/favorites'
+    | '/hospitals'
+    | '/pharmacies'
+    | '/realestate'
+    | '/search'
+    | '/services'
+    | '/subscribe'
+    | '/provider/$id'
+    | '/rate/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/delivery'
+    | '/doctors'
+    | '/favorites'
+    | '/hospitals'
+    | '/pharmacies'
+    | '/realestate'
+    | '/search'
+    | '/services'
+    | '/subscribe'
+    | '/provider/$id'
+    | '/rate/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/delivery'
+    | '/doctors'
+    | '/favorites'
+    | '/hospitals'
+    | '/pharmacies'
+    | '/realestate'
+    | '/search'
+    | '/services'
+    | '/subscribe'
+    | '/provider/$id'
+    | '/rate/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DeliveryRoute: typeof DeliveryRoute
+  DoctorsRoute: typeof DoctorsRoute
+  FavoritesRoute: typeof FavoritesRoute
+  HospitalsRoute: typeof HospitalsRoute
+  PharmaciesRoute: typeof PharmaciesRoute
+  RealestateRoute: typeof RealestateRoute
+  SearchRoute: typeof SearchRoute
+  ServicesRoute: typeof ServicesRoute
+  SubscribeRoute: typeof SubscribeRoute
+  ProviderIdRoute: typeof ProviderIdRoute
+  RateIdRoute: typeof RateIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/delivery': {
+      id: '/delivery'
+      path: '/delivery'
+      fullPath: '/delivery'
+      preLoaderRoute: typeof DeliveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doctors': {
+      id: '/doctors'
+      path: '/doctors'
+      fullPath: '/doctors'
+      preLoaderRoute: typeof DoctorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/favorites': {
+      id: '/favorites'
+      path: '/favorites'
+      fullPath: '/favorites'
+      preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hospitals': {
+      id: '/hospitals'
+      path: '/hospitals'
+      fullPath: '/hospitals'
+      preLoaderRoute: typeof HospitalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pharmacies': {
+      id: '/pharmacies'
+      path: '/pharmacies'
+      fullPath: '/pharmacies'
+      preLoaderRoute: typeof PharmaciesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/realestate': {
+      id: '/realestate'
+      path: '/realestate'
+      fullPath: '/realestate'
+      preLoaderRoute: typeof RealestateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscribe': {
+      id: '/subscribe'
+      path: '/subscribe'
+      fullPath: '/subscribe'
+      preLoaderRoute: typeof SubscribeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/provider/$id': {
+      id: '/provider/$id'
+      path: '/provider/$id'
+      fullPath: '/provider/$id'
+      preLoaderRoute: typeof ProviderIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rate/$id': {
+      id: '/rate/$id'
+      path: '/rate/$id'
+      fullPath: '/rate/$id'
+      preLoaderRoute: typeof RateIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DeliveryRoute: DeliveryRoute,
+  DoctorsRoute: DoctorsRoute,
+  FavoritesRoute: FavoritesRoute,
+  HospitalsRoute: HospitalsRoute,
+  PharmaciesRoute: PharmaciesRoute,
+  RealestateRoute: RealestateRoute,
+  SearchRoute: SearchRoute,
+  ServicesRoute: ServicesRoute,
+  SubscribeRoute: SubscribeRoute,
+  ProviderIdRoute: ProviderIdRoute,
+  RateIdRoute: RateIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
