@@ -5,7 +5,7 @@ export type Review = {
   id: string;
   providerId: string;
   stars: number;
-  comment?: string;
+  comment?: string | undefined;
   date: string;
 };
 
